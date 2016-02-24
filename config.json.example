@@ -1,0 +1,8 @@
+{
+  "username": "admin",
+  "password": "password",
+  "sanitized": "True",
+  "maxResults": 25,
+  "prime_url": "https://prime.example.com",
+  "verbose": "True"
+}
