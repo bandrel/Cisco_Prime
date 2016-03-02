@@ -14,6 +14,7 @@ import base64
 import sys
 import getopt
 import re
+import getpass
 
 def helpmsg():
     print >> sys.stderr, 'Usage: download-configs.py [Options]>' \
@@ -63,9 +64,15 @@ with open(config_file) as data_file:
     config = json.load(data_file)
 
 if username is '':
-    username = config['username']
+    try:
+        username = config['username']
+    except:
+        username = raw_input('Enter Username:')
 if password is '':
-    password = config['password']
+    try:
+        password = config['password']
+    except:
+        password = getpass.getpass('Enter password:')
 sanitized = bool(config['sanitized'])
 maxResults = config['maxResults']
 prime_url = config['prime_url']
